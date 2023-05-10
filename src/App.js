@@ -22,7 +22,7 @@ import Navigation from './component/Navigation';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Navigation />
       <Routes>
         <Route path='/' element={<Home/>} />

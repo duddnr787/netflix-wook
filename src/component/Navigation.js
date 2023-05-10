@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="black" variant="black" expand="lg" className='Nav'>
       <Container fluid>
         <Navbar.Brand href="#"><span id='logo'>WOOKFLIX</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
