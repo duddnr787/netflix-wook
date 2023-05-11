@@ -8,7 +8,11 @@ const MovieCard = ({item}) => {
     <div className="movie-card"
     style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w710_and_h400_multi_faces${item.poster_path}`+")"}}>
       <div className='overlay'>
-        <h4>{item.title}</h4>
+        <div className='items'></div>
+        <div className='items head'>
+          <p>{item.title}</p>
+          <hr></hr>
+        </div>
         <div>{item.genre_ids.map((id) => (<Badge bg="danger">{genreList.find((item) => item.id == id).name}</Badge>))}
         </div>
         <div>
