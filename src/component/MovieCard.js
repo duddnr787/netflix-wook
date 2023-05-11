@@ -8,8 +8,7 @@ const MovieCard = ({item}) => {
     <div className="movie-card"
     style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w710_and_h400_multi_faces${item.poster_path}`+")"}}>
       <div className='overlay'>
-        <div className='items'></div>
-        <div className='items head'>
+        <div className='head'>
           <p>{item.title}</p>
           <hr></hr>
         </div>
