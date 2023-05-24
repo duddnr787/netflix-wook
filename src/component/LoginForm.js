@@ -13,7 +13,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5" style={{width:'40%', height:'70%'}}>
       <Form onSubmit={handleSubmit} style={{padding:'30px'}}>
         <Form.Group controlId="email">
           <Form.Label style={{color:"white",fontSize:'32px',marginBottom:'30px' }}>로그인</Form.Label>
@@ -35,10 +35,19 @@ const LoginForm = () => {
             style={{ backgroundColor: 'rgb(60, 60, 60)', width: '100%', height:'50px', color:'lightgray', borderColor:'rgb(27, 27, 27)' }}
           />
         </Form.Group>
-        <br/>
-        <Button variant="outline-danger" type="submit" style={{ width: '100%'}}>
+        <br/><br/>
+        <Button variant="outline-danger" type="submit" style={{ width: '100%',marginBottom:'10px'}}>
           로그인
         </Button>
+        <Form.Group className="mb-3">
+          <Form.Check
+            type="checkbox"
+            id="disabledFieldsetCheck"
+            label="로그인 정보 저장"
+            checked='true'
+            style={{color:'#eee'}}
+          />
+        </Form.Group>
       </Form>
     </Container>
   );
