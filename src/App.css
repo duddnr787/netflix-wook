@@ -5,14 +5,15 @@
 	letter-spacing: 3px;
 	margin-left: 5px;
 }
-body, html {
+body,
+html {
 	margin: 0;
 	background-color: #000;
-	font-family: "Montserrat",helvetica,arial,sans-serif;
+	font-family: "Montserrat", helvetica, arial, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 }
-.App{
+.App {
 	background-color: #000;
 }
 .Nav {
@@ -74,8 +75,21 @@ h1 {
 	height: 280px;
 	transition: 0.5s;
 }
+.movie-card:hover .overlay {
+	padding: 20px;
+}
 .movie-card:hover .overlay .head {
+	color: #eee;
+	margin-bottom: 50px;
 	transform: translateY(0px);
+}
+.genre {
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(0px);
+}
+.genre .Badge {
+	font-size: 15px;
 }
 .movie-card:hover .overlay {
 	opacity: 1;
@@ -112,7 +126,27 @@ h1 {
 	transition: all 0.5s;
 }
 
-.movie-sidebar-wrapper{
+.movie-sidebar-wrapper {
 	display: flex;
 	justify-content: space-between;
+}
+.dot {
+	position: relative;
+}
+
+.Login {
+	background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/51e53f54-0d9f-40ec-9e05-c030def06ac9/400e792e-439b-4606-b384-d6d648de2f79/KR-ko-20230515-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+	background-size: cover;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.mt-5 {
+	width: 30%;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: black;
+	border-radius: 4px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }

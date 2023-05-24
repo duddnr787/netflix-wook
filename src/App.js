@@ -6,6 +6,7 @@ import MovieDetail from './pages/MovieDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navigation from './component/Navigation';
+import Login from './pages/Login';
 //1. 3개 페이지 필요 홈페이지 , movie 페이지 , movieDetail페이지 
 
 //2. 홈페이지 : 배너를 볼 수 있다.
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/movies' element={<Movies/>} />
         <Route path='/movie/:id' element={<MovieDetail/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
     </div>
   );

@@ -24,11 +24,12 @@ const Navigation = () => {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="입력해주세요."
               className="me-2"
               aria-label="Search"
             />
             <Button variant="outline-danger">Search</Button>
+            <Button href="/login" variant="outline-danger" style={{ marginLeft: "10px" }}>Login</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

@@ -29,7 +29,7 @@ const responsive = {
 const MovieSlide = ({ movies }) => {
   return (
     <div>
-      <Carousel responsive={responsive} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={2500} focusOnSelect={true} >
+      <Carousel responsive={responsive} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={2500} focusOnSelect={true} dotListClass={'dot'}>
         {movies.results.map((item) => 
           <MovieCard item={item}/>
         )}

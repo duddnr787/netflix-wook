@@ -12,10 +12,11 @@ const MovieCard = ({item}) => {
           <p>{item.title}</p>
           <hr></hr>
         </div>
-        <div>{item.genre_ids.map((id) => (<Badge bg="danger">{genreList.find((item) => item.id == id).name}</Badge>))}
+        <div className='genre'>
+          {item.genre_ids.map((id) => (<Badge className='Badge' bg="danger">{genreList.find((item) => item.id == id).name}</Badge>))}
         </div>
         <div>
-          <span>{item.vote_average}</span>
+          <span>평점 : {item.vote_average}</span>
           <span>{item.adult ? '청불' : '누구나'}</span>
         </div>
       </div>
