@@ -51,7 +51,7 @@ h1 {
 	margin: 0 auto;
 	position: absolute;
 	top: 30%;
-	left: 30px;
+	padding-left: 100px;
 	z-index: 1;
 	color: white;
 }
@@ -149,4 +149,8 @@ h1 {
 	color: black;
 	border-radius: 4px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.form-check-input{
+	background-color: #ff1324;
+	border-color: #ff1324;
 }
