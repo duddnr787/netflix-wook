@@ -1,17 +1,15 @@
 import { fontSize, height } from '@mui/system';
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 //popularMovies에 있는 1번째 애를 배너로 만들거다.
 const Banner = () => {
   const [email, setEmail] = useState('');
-
+  localStorage.setItem('email', email);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 이메일 등록 또는 재시작 처리
-    // ...
-
-    // 폼 제출 후 입력값 초기화
-    setEmail('');
+    navigate('/signup');
   };
   return (
     <div className='banner' style={{ backgroundImage: "url(" + 'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/tcYO8ay3A0liCWxHu2creU3Q9IB.jpg' + ")" }}>
