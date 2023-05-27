@@ -1,16 +1,30 @@
 import { fontSize, height } from '@mui/system';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 //popularMovies에 있는 1번째 애를 배너로 만들거다.
 const Banner = () => {
   const [email, setEmail] = useState('');
+
   localStorage.setItem('email', email);
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/signup');
+    axios({
+      url: `/auth/DupCheck.do?email=${email}`, // 통신할 웹문서`;
+      method: 'get', // 통신할 방식
+    }).then((res) => {
+      if (res === true) {
+        alert('합격');
+      } else {
+        alert('불합격');
+      }
+    });
   };
+
+
   return (
     <div className='banner' style={{ backgroundImage: "url(" + 'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/tcYO8ay3A0liCWxHu2creU3Q9IB.jpg' + ")" }}>
       <div className='banner-info' >
@@ -20,19 +34,19 @@ const Banner = () => {
         <br />
         한편, 키부츠지 무잔은 무한성에 상현 혈귀들을 소집시키고 탄지로는 새로운 칼을 찾아 도공 마을로 향하는데...
 
-        <div style={{marginTop:'30px', fontSize:'30px'}}>시청할 준비가 되셨나요? 가입을 하기 위해 아래 이메일 주소를 입력해주세요.</div>
-        <Container className="banner-container" style={{marginTop:'30px'}}>
-          <Form onSubmit={handleSubmit} style={{display:'flex'}}>
-            <Form.Group controlId="email" style={{marginRight:'10px'}}>
-              <Form.Control style={{backgroundColor: 'rgba(60, 60, 60, 0.5)', color:'white', width:'400px', height:'50px'}}
+        <div style={{ marginTop: '30px', fontSize: '30px' }}>시청할 준비가 되셨나요? 가입을 하기 위해 아래 이메일 주소를 입력해주세요.</div>
+        <Container className="banner-container" style={{ marginTop: '30px' }}>
+          <Form onSubmit={handleSubmit} style={{ display: 'flex' }} >
+            <Form.Group controlId="email" style={{ marginRight: '10px' }}>
+              <Form.Control style={{ backgroundColor: 'rgba(60, 60, 60, 0.5)', color: 'white', width: '400px', height: '50px' }}
                 type="email"
                 placeholder="이메일 주소를 입력하세요."
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => { setEmail(e.target.value) }}
                 required
               />
             </Form.Group>
-            <Button variant="danger" type="submit">
+            <Button variant="danger" type="submit" >
               시작하기 &gt;
             </Button>
           </Form>

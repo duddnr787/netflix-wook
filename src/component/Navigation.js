@@ -10,7 +10,7 @@ const Navigation = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className='Nav'>
       <Container fluid>
-        <Navbar.Brand href="#"><span id='logo'>WOOKFLIX</span></Navbar.Brand>
+        <Navbar.Brand href="/"><span id='logo'>WOOKFLIX</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

@@ -33,6 +33,7 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{ backgroundColor: 'rgb(60, 60, 60)', width: '100%', height: '50px', color: 'lightgray', borderColor: 'rgb(27, 27, 27)' }}
+            required='비밀번호를 입력해주세요'
           />
         </Form.Group>
         <div style={{ color: 'white', textAlign: 'right', marginTop: '10px' }}>
