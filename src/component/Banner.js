@@ -6,20 +6,25 @@ import { useNavigate } from 'react-router-dom';
 //popularMovies에 있는 1번째 애를 배너로 만들거다.
 const Banner = () => {
   const [email, setEmail] = useState('');
+  const [isDuplicate, setIsDuplicate] = useState(false);
 
   localStorage.setItem('email', email);
   const navigate = useNavigate();
 
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+    setIsDuplicate(false);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     axios({
       url: `/auth/DupCheck.do?email=${email}`, // 통신할 웹문서`;
       method: 'get', // 통신할 방식
     }).then((res) => {
-      if (res === true) {
-        alert('합격');
+      if (res.data === false) {
+        setIsDuplicate(false);
       } else {
-        alert('불합격');
+        setIsDuplicate(true);
       }
     });
   };
@@ -42,9 +47,14 @@ const Banner = () => {
                 type="email"
                 placeholder="이메일 주소를 입력하세요."
                 value={email}
-                onChange={(e) => { setEmail(e.target.value) }}
-                required
+                onChange={changeEmail}
+                required isInvalid={isDuplicate}
               />
+              {isDuplicate && (
+                <Form.Control.Feedback type="invalid" style={{ fontSize: '15px' }}>
+                  누군가가 이메일을 쓰고 있어요 !
+                </Form.Control.Feedback>
+              )}
             </Form.Group>
             <Button variant="danger" type="submit" >
               시작하기 &gt;
