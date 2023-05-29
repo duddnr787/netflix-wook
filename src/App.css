@@ -154,3 +154,18 @@ h1 {
 	background-color: #ff1324;
 	border-color: #ff1324;
 }
+
+/* 회원가입 완료 시 글씨 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+

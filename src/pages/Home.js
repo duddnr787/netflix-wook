@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
   
   if(loading){
-    return <ClipLoader color="#eee" loading={loading}  size={150} aria-label="Loading Spinner" data-testid="loader" />
+    return <ClipLoader color="#eee" loading={loading}  size={150} aria-label="Loading Spinner" data-testid="loader" style={{margin: '0 auto'}}/>
   }
   return (
     <div>

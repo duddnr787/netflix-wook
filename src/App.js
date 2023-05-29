@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './component/Navigation';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import SignSuccess from './pages/SignSuccess';
 //1. 3개 페이지 필요 홈페이지 , movie 페이지 , movieDetail페이지 
 
 //2. 홈페이지 : 배너를 볼 수 있다.
@@ -27,11 +28,12 @@ function App() {
     <div className='App'>
       <Navigation />
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/movies' element={<Movies/>} />
-        <Route path='/movie/:id' element={<MovieDetail/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/movies' element={<Movies />} />
+        <Route path='/movie/:id' element={<MovieDetail />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/signupSuccess' element={<SignSuccess />} />
       </Routes>
     </div>
   );

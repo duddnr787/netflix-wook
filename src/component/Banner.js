@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Banner = () => {
   const [email, setEmail] = useState('');
   const [isDuplicate, setIsDuplicate] = useState(false);
+  const [message, setMessage] = useState('');
 
   localStorage.setItem('email', email);
   const navigate = useNavigate();
@@ -23,12 +24,18 @@ const Banner = () => {
     }).then((res) => {
       if (res.data === false) {
         setIsDuplicate(false);
+        if(!email.endsWith('.com')){
+          setMessage('이메일 형식에 맞게 작성을 해주세요 !');
+          setIsDuplicate(true);
+        } else {
+          navigate('/signup');
+        }
       } else {
+        setMessage('해당 이메일은 누군가가 사용하고 있어요 !');
         setIsDuplicate(true);
       }
-    });
+    }); 
   };
-
 
   return (
     <div className='banner' style={{ backgroundImage: "url(" + 'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/tcYO8ay3A0liCWxHu2creU3Q9IB.jpg' + ")" }}>
@@ -52,11 +59,11 @@ const Banner = () => {
               />
               {isDuplicate && (
                 <Form.Control.Feedback type="invalid" style={{ fontSize: '15px' }}>
-                  누군가가 이메일을 쓰고 있어요 !
+                    {message}
                 </Form.Control.Feedback>
               )}
             </Form.Group>
-            <Button variant="danger" type="submit" >
+            <Button variant="danger" type="submit" style={{height:'50px'}}>
               시작하기 &gt;
             </Button>
           </Form>

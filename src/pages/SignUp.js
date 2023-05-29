@@ -1,18 +1,28 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, CardGroup, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   let email = localStorage.getItem('email');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 로그인 처리 로직을 구현하세요.
+  const navigate = useNavigate();
+  const handleSignup = () => {
+    axios
+      .post('/auth/signup', {
+        email: email,
+        password: password
+      })
+      .then(response => {
+        navigate('/signupSuccess');
+      })
+      .catch(error => {
+        alert(error); 
+      });
   };
   return (
     <Container className="mt-5" style={{ width: '50%', height: '70%' }}>
-      <Form onSubmit={handleSubmit} style={{ padding: '30px' }}>
+      <Form onSubmit={handleSignup} style={{ padding: '30px' }}>
         <CardGroup controlId="email">
           <label style={{ color: "white", fontSize: '32px', marginBottom: '30px' }}>
             회원님, 반가워요 !<br />욱플릭스 가입 절차는 매우 간단해요 !
@@ -23,8 +33,8 @@ const SignUp = () => {
         </CardGroup>
         <br />
         <Form.Group >
-          <div style={{ color: "white", fontSize: '13px'}}>이메일 주소</div>
-          <Form.Label  style={{ color: "white", fontSize: '15px', marginBottom: '30px', fontWeight:'bold' }}>{email}</Form.Label>
+          <div style={{ color: "white", fontSize: '13px' }}>이메일 주소</div>
+          <Form.Label style={{ color: "white", fontSize: '15px', marginBottom: '30px', fontWeight: 'bold' }}>{email}</Form.Label>
         </Form.Group>
         <Form.Group controlId="password">
           <Form.Control
@@ -42,7 +52,7 @@ const SignUp = () => {
           </Link>
         </div>
         <br /><br />
-        <Button variant="outline-danger" type="submit" style={{ width: '100%', marginBottom: '10px', color:'white' }}>
+        <Button variant="outline-danger" type="submit" style={{ width: '100%', marginBottom: '10px', color: 'white' }}>
           회원 가입
         </Button>
         <br /><br />
