@@ -7,7 +7,8 @@ const SignUp = () => {
   let email = localStorage.getItem('email');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const handleSignup = () => {
+  const handleSignup = (e) => {
+    e.preventDefault();
     axios
       .post('/auth/signup', {
         email: email,
@@ -17,7 +18,7 @@ const SignUp = () => {
         navigate('/signupSuccess');
       })
       .catch(error => {
-        alert(error); 
+        alert(error);
       });
   };
   return (
