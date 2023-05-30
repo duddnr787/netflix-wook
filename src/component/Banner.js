@@ -1,13 +1,16 @@
 import { fontSize, height } from '@mui/system';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 //popularMovies에 있는 1번째 애를 배너로 만들거다.
 const Banner = () => {
   const [email, setEmail] = useState('');
   const [isDuplicate, setIsDuplicate] = useState(false);
   const [message, setMessage] = useState('');
+
+  const { isLoggedIn } = useContext(AuthContext);
 
   localStorage.setItem('email', email);
   const navigate = useNavigate();

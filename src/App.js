@@ -9,6 +9,8 @@ import Navigation from './component/Navigation';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import SignSuccess from './pages/SignSuccess';
+import { useState } from 'react';
+import { AuthContext } from './context/AuthContext';
 //1. 3개 페이지 필요 홈페이지 , movie 페이지 , movieDetail페이지 
 
 //2. 홈페이지 : 배너를 볼 수 있다.
@@ -24,18 +26,27 @@ import SignSuccess from './pages/SignSuccess';
 //11. 영화 정렬도 할 수 있다. 필터링 할 수 있다.
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // 로그인 정보를 제공할 컨텍스트 값 설정
+  const authContextValue = {
+    isLoggedIn,
+    setIsLoggedIn,
+  };
   return (
-    <div className='App'>
-      <Navigation />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/movies' element={<Movies />} />
-        <Route path='/movie/:id' element={<MovieDetail />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/signupSuccess' element={<SignSuccess />} />
-      </Routes>
-    </div>
+    <AuthContext.Provider value={authContextValue}>
+      <div className='App'>
+        <Navigation />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/movies' element={<Movies />} />
+          <Route path='/movie/:id' element={<MovieDetail />} />
+          {isLoggedIn ? <Route path='/login' element={<Home />} /> : <Route path='/login' element={<Login />} />}
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/signupSuccess' element={<SignSuccess />} />
+        </Routes>
+      </div>
+    </AuthContext.Provider>
   );
 }
 
