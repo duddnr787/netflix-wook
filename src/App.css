@@ -17,7 +17,8 @@ html {
 	background-color: #000;
 }
 .Nav {
-	background-color: #141414;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 h1 {
 	color: #ffff;
@@ -32,19 +33,22 @@ h1 {
 	color: #eee;
 }
 .banner {
-	height: 100vh;
+	height: 86vh;
 	display: flex;
 	align-items: center;
 	background-size: cover;
+	margin: 5px 30px 10px 30px;
+	border-radius: 20px;
 }
 /* 배너 그라데이션 */
 .banner:before {
-	position: absolute;
+	position: relative;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	content: "";
-	background: linear-gradient(to right, black, transparent);
+	background: linear-gradient(to right, rgb(14, 10, 10), transparent);
+	border-radius: 20px;
 }
 .banner-info {
 	width: 60%;
@@ -140,7 +144,7 @@ h1 {
 .Login {
 	background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/51e53f54-0d9f-40ec-9e05-c030def06ac9/400e792e-439b-4606-b384-d6d648de2f79/KR-ko-20230515-popsignuptwoweeks-perspective_alpha_website_large.jpg");
 	background-size: cover;
-	height: 100vh;
+	height: 90vh;
 	margin: 0;
 	display: flex;
 	justify-content: center;

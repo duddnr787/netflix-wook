@@ -17,16 +17,16 @@ const Home = () => {
     return <ClipLoader color="#eee" loading={loading}  size={150} aria-label="Loading Spinner" data-testid="loader" style={{margin: '0 auto'}}/>
   }
   return (
-    <div>
-      <Banner movie={popularMovies.results[0]} />
-      <div className='main-container'>
+    <div className='Home'>
+      <Banner />
+      {/* <div className='main-container'>
         <h1>현재 인기있는 영화</h1>
         <MovieSlide movies={popularMovies} />
         <h1>최고의 흥행 영화</h1>
         <MovieSlide movies={topRatedMovies} />
         <h1>곧 개봉 영화</h1>
         <MovieSlide movies={upcomingMovies} />
-      </div>
+      </div> */}
     </div>
   );
 };

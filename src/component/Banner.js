@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import LoginUser from './LoginUser';
 import SignForm from './SignForm';
-//popularMovies에 있는 1번째 애를 배너로 만들거다.
+
 const Banner = () => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
-    <div className='banner' style={{ backgroundImage: "url(" + 'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/tcYO8ay3A0liCWxHu2creU3Q9IB.jpg' + ")" }}>
+    <div className='banner' style={{ backgroundImage: "url(" + 'https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/tcYO8ay3A0liCWxHu2creU3Q9IB.jpg' + ")"}}>
       <div className='banner-info' >
         <h1>귀멸의 칼날: 상현집결, 그리고 도공 마을로 (2023)</h1><br />
         <br />

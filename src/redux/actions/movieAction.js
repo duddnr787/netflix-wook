@@ -10,11 +10,11 @@ function getMovies(){
     const topRatedApi = api.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=${API_KEY}`);
 
     const upcomingApi = api.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&api_key=${API_KEY}`);
-
+    
     const genreApi = api.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en`);
-
+    
+    
     let [popularMovies, topRatedMovies, upcomingMovies, genreList] = await Promise.all([popularMovieApi, topRatedApi, upcomingApi, genreApi]) //동시에 API 호출을 시키고 기다리라. //배열로 받음.
-    console.log('gegege', genreList);
     dispatch({
       type:"GET_MOVIES_SUCCESS",
       payload:{

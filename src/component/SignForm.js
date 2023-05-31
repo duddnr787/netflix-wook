@@ -40,7 +40,7 @@ const SignForm = () => {
   };
   return (
     <div>
-      <div style={{ marginTop: '30px', fontSize: '30px' }}>시청할 준비가 되셨나요? 가입을 하기 위해 아래 이메일 주소를 입력해주세요.</div>
+      <div style={{ marginTop: '30px', fontSize: '30px' }}>시청할 준비가 되셨나요 ? <br/>가입을 하기 위해 아래 이메일 주소를 입력해주세요.</div>
         <Container className="banner-container" style={{ marginTop: '30px' }}>
           <Form onSubmit={handleSubmit} style={{ display: 'flex' }} >
             <Form.Group controlId="email" style={{ marginRight: '10px' }}>

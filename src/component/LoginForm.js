@@ -39,7 +39,7 @@ const LoginForm = () => {
 
   return (
     <AuthContext.Provider value={authContext}>
-      <Container className="mt-5" style={{ width: '40%', height: '70%' }}>
+      <Container  style={{ width: '40%', height: '75%', backgroundColor:'black' , opacity:'0.9', borderRadius:'15px'}}>
         <Form onSubmit={handleLogin} style={{ padding: '30px' }}>
           <Form.Group controlId="email">
             <Form.Label style={{ color: "white", fontSize: '32px', marginBottom: '30px' }}>로그인</Form.Label>

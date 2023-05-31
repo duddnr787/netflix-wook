@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp';
 import SignSuccess from './pages/SignSuccess';
 import { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
+import MovieSearchCard from './component/MovieSearchCard';
 //1. 3개 페이지 필요 홈페이지 , movie 페이지 , movieDetail페이지 
 
 //2. 홈페이지 : 배너를 볼 수 있다.
@@ -46,6 +47,7 @@ function App() {
           {isLoggedIn ? <Route path='/login' element={<Home />} /> : <Route path='/login' element={<Login />} />}
           <Route path='/signup' element={<SignUp />} />
           <Route path='/signupSuccess' element={<SignSuccess />} />
+          <Route path='/search' element={<MovieSearchCard />} />
         </Routes>
       </div>
     </AuthContext.Provider>
