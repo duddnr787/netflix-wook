@@ -27,11 +27,13 @@ import { AuthContext } from './context/AuthContext';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [email, setEmail] = useState('');
   // 로그인 정보를 제공할 컨텍스트 값 설정
   const authContextValue = {
     isLoggedIn,
     setIsLoggedIn,
+    email,
+    setEmail,
   };
   return (
     <AuthContext.Provider value={authContextValue}>

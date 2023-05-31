@@ -75,38 +75,10 @@ h1 {
 	height: 280px;
 	transition: 0.5s;
 }
-.movie-card:hover .overlay {
-	padding: 20px;
-}
 .movie-card:hover .overlay .head {
 	color: #eee;
 	margin-bottom: 50px;
 	transform: translateY(0px);
-}
-.genre {
-	display: flex;
-	justify-content: space-between;
-	transform: translateY(0px);
-}
-.genre .Badge {
-	font-size: 15px;
-}
-.movie-card:hover .overlay {
-	opacity: 1;
-}
-.card:hover .overlay hr {
-	width: 75px;
-	transition-delay: 0.4s;
-}
-.overlay {
-	width: 100%;
-	height: 100%;
-	background: rgba(63, 62, 62, 0.9);
-	opacity: 0;
-}
-.items {
-	padding-left: 20px;
-	letter-spacing: 3px;
 }
 .head {
 	font-size: 50px;
@@ -124,6 +96,37 @@ h1 {
 	bottom: 0;
 	left: 20px;
 	transition: all 0.5s;
+}
+.genre {
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(0px);
+}
+.genre .Badge {
+	font-size: 15px;
+}
+.score {
+	margin-top: 50px;
+	color: #eee;
+}
+.overlay {
+	width: 100%;
+	height: 100%;
+	background: rgba(63, 62, 62, 0.9);
+	opacity: 0;
+}
+.movie-card:hover .overlay {
+	opacity: 1;
+	padding: 20px;
+}
+/* .card:hover .overlay hr {
+	width: 75px;
+	transition-delay: 0.4s;
+} */
+
+.items {
+	padding-left: 20px;
+	letter-spacing: 3px;
 }
 
 .movie-sidebar-wrapper {
@@ -150,23 +153,22 @@ h1 {
 	border-radius: 4px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.form-check-input{
+.form-check-input {
 	background-color: #ff1324;
 	border-color: #ff1324;
 }
 
 /* 회원가입 완료 시 글씨 애니메이션 */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
-
-.mt-5 {
-	margin-top: -3rem!important;
+.email{
+	background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+	-webkit-background-clip: text;
+	color: transparent;
 }
-
-

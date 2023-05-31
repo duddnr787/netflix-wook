@@ -29,6 +29,7 @@ const LoginForm = () => {
       .then(response => {
         navigate('/');
         authContext.setIsLoggedIn(true);
+        authContext.setEmail(email);
       })
       .catch(response => {
         setIsDuplicate(true);
