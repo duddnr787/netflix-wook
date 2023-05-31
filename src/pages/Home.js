@@ -6,16 +6,6 @@ import { movieAction } from '../redux/actions/movieAction';
 import ClipLoader from "react-spinners/ClipLoader";
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const { popularMovies, topRatedMovies, upcomingMovies, loading } = useSelector(state => state.movie)
-
-  useEffect(() => {
-    dispatch(movieAction.getMovies())
-  }, []);
-  
-  if(loading){
-    return <ClipLoader color="#eee" loading={loading}  size={150} aria-label="Loading Spinner" data-testid="loader" style={{margin: '0 auto'}}/>
-  }
   return (
     <div className='Home'>
       <Banner />
