@@ -161,8 +161,10 @@ h1 {
 .Login {
 	background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/51e53f54-0d9f-40ec-9e05-c030def06ac9/400e792e-439b-4606-b384-d6d648de2f79/KR-ko-20230515-popsignuptwoweeks-perspective_alpha_website_large.jpg");
 	background-size: cover;
-	height: 90vh;
-	margin: 0;
+	width: 90%;
+	height: 85vh;
+	border-radius: 30px;
+	margin: 0 auto 15px auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;

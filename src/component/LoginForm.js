@@ -40,7 +40,7 @@ const LoginForm = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <Container  style={{ width: '40%', height: '75%', backgroundColor:'black' , opacity:'0.9', borderRadius:'15px'}}>
-        <Form onSubmit={handleLogin} style={{ padding: '30px' }}>
+        <Form onSubmit={handleLogin} style={{ padding: '19px' }}>
           <Form.Group controlId="email">
             <Form.Label style={{ color: "white", fontSize: '32px', marginBottom: '30px' }}>로그인</Form.Label>
             <Form.Control
@@ -86,7 +86,7 @@ const LoginForm = () => {
               style={{ color: '#eee', marginLeft: '65%' }}
             />
           </Form>
-          <div style={{ color: 'rgb(120, 120, 120)', textAlign: 'center', marginTop: '20px' }}>
+          <div style={{ color: 'rgb(120, 120, 120)', textAlign: 'center', marginTop: '20px', marginBottom:'20px' }}>
             Wookflix 회원이 아닌가요?{' '}
             <Link to="/" style={{ color: 'white' }}>
               지금 가입하세요.
