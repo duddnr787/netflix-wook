@@ -12,19 +12,27 @@ const Movies = () => {
     dispatch(movieAction.getMovies())
   }, []);
 
-  if(loading){
-    return <ClipLoader color="#eee" loading={loading}  size={150} aria-label="Loading Spinner" data-testid="loader" style={{margin: '0 auto'}}/>
+  if (loading) {
+    return <ClipLoader color="#eee" loading={loading} size={150} aria-label="Loading Spinner" data-testid="loader" style={{ margin: '0 auto' }} />
   }
 
   return (
     <div>
       <div className='main-container'>
-        <h1>현재 인기있는 영화</h1>
-        <MovieSlide movies={popularMovies} />
-        <h1>최고의 흥행 영화</h1>
-        <MovieSlide movies={topRatedMovies} />
-        <h1>곧 개봉 영화</h1>
-        <MovieSlide movies={upcomingMovies} />
+        <div className='moiveWrap'>
+          <h1>현재 인기있는 영화</h1>
+          <MovieSlide movies={popularMovies} />
+        </div>
+        <hr style={{color:'white' , marginBottom:'60px'}} />
+        <div className='moiveWrap'>
+          <h1>최고의 흥행 영화</h1>
+          <MovieSlide  movies={topRatedMovies} />
+        </div>
+        <hr style={{color:'white' , marginBottom:'60px'}} />
+        <div className='moiveWrap'>
+          <h1>곧 개봉하는 영화</h1>
+          <MovieSlide  movies={upcomingMovies} />
+        </div>
       </div>
     </div>
   );

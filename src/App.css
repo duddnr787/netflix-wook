@@ -60,13 +60,27 @@ h1 {
 	color: white;
 }
 .main-container {
-	background-color: #000;
+	background: linear-gradient(135deg, #0a0113, #350303);
+  padding: 30px;
 	width: 80%;
-	margin: 0 auto;
+	border-radius: 30px;
+	margin: 50px auto;
 }
+.moiveWrap {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-bottom: 60px;
+}
+.movieSlide {
+	width: 40%;
+	border-radius: 20px;
+}
+
 .main-container h1 {
 	font-family: "Montserrat", helvetica, arial, sans-serif;
 	font-size: 2.5rem;
+	font-weight: bold;
 	margin-top: 30px;
 }
 .movie-card {
@@ -171,8 +185,17 @@ h1 {
 		opacity: 1;
 	}
 }
-.email{
-	background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+.email {
+	background-image: linear-gradient(
+		90deg,
+		red,
+		orange,
+		yellow,
+		green,
+		blue,
+		navy,
+		purple
+	);
 	-webkit-background-clip: text;
 	color: transparent;
 }
