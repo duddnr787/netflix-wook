@@ -43,11 +43,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/movies' element={<Movies />} />
+          <Route path='/movies/search' element={<MovieSearchCard />} />
           <Route path='/movie/:id' element={<MovieDetail />} />
           {isLoggedIn ? <Route path='/login' element={<Home />} /> : <Route path='/login' element={<Login />} />}
           <Route path='/signup' element={<SignUp />} />
           <Route path='/signupSuccess' element={<SignSuccess />} />
-          <Route path='/search' element={<MovieSearchCard />} />
         </Routes>
       </div>
     </AuthContext.Provider>

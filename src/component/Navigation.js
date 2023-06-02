@@ -14,6 +14,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const API_KEY = process.env.REACT_APP_API_KEY;
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ const Navigation = () => {
       });
       console.log(response.data.results);
       if (response.data.results.length !== 0) {
-        //MovieSearchCard 들이 나열 되어있어야해 
+        setSearchResults(response.data.results); //context로 바꿔야하나봐... 
         setSearch('');
       } else {
         alert('검색 내용이 없습니다 ! ');
