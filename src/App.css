@@ -61,7 +61,7 @@ h1 {
 }
 .main-container {
 	background: linear-gradient(135deg, #0a0113, #350303);
-  padding: 30px;
+	padding: 30px;
 	width: 80%;
 	border-radius: 30px;
 	margin: 50px auto;
@@ -85,12 +85,13 @@ h1 {
 }
 .movie-card {
 	cursor: pointer;
-	height: 180px;
+	height: 100%;
+	border-radius: 20px;
 	background-size: cover;
 }
 .movie-card:hover {
-	width: 400px;
-	height: 280px;
+	width: 100%;
+	height: 100%;
 	transition: 0.5s;
 }
 .movie-card:hover .overlay .head {
@@ -117,7 +118,8 @@ h1 {
 }
 .genre {
 	display: flex;
-	justify-content: space-between;
+	justify-content: left;
+	flex-wrap: wrap;
 	transform: translateY(0px);
 }
 .genre .Badge {
@@ -128,6 +130,7 @@ h1 {
 	color: #eee;
 }
 .overlay {
+	border-radius: 20px;
 	width: 100%;
 	height: 100%;
 	background: rgba(63, 62, 62, 0.9);
