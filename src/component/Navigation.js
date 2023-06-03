@@ -34,7 +34,10 @@ const Navigation = () => {
         setSearch('');
         navigate('/movies/search');
       } else {
-        alert('검색 내용이 없습니다 ! ');
+        if (localStorage.getItem('searchList') !== null) {
+          localStorage.removeItem('searchList');
+        }
+        navigate('/movies/search');
       }
     } catch (error) {
       console.log('error');
@@ -70,7 +73,7 @@ const Navigation = () => {
             <Link to="/movies" className='nav-item'>Movies</Link>
           </Nav>
           {isMoviesPage && (
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearch}>
               <Form.Control
                 style={{ backgroundColor: 'rgba(60, 60, 60, 0.5)', color: 'white', width: '180px', height: '33.5px' }}
                 type="text"
@@ -96,6 +99,7 @@ const AuthButton = () => {
     setIsLoggedIn(false);
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('email');
+    localStorage.removeItem('searchList');
   };
 
   return (

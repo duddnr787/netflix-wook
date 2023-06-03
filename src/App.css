@@ -68,17 +68,25 @@ h1 {
 }
 
 .movieCard {
-  width: 18rem;
-  margin: 0.5rem;
-  padding: 20px;
-  transition: all 0.3s ease; 
+	width: 18rem;
+	margin: 0.5rem;
+	padding: 20px;
+	transition: all 0.3s ease;
 	background: linear-gradient(135deg, #0a0113, #350303);
 }
 .movieCard:hover {
 	cursor: pointer;
-  transform: scale(1.1); 
+	transform: scale(1.1);
 }
-
+.noSearch {
+	width: 80%;
+	padding: 210px;
+	margin-top: 40px;
+	text-align: center;
+	background: linear-gradient(135deg, #17042a, #350303);
+	color: #eee;
+	font: 40px bold;
+}
 .moiveWrap {
 	display: flex;
 	justify-content: space-around;
