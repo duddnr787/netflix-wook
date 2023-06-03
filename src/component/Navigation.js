@@ -30,6 +30,7 @@ const Navigation = () => {
       });
       if (response.data.results.length !== 0) {
         searchList.setSearchResults(response.data.results);
+        localStorage.setItem('searchList', JSON.stringify(response.data.results));
         setSearch('');
         navigate('/movies/search');
       } else {
