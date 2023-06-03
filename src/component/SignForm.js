@@ -11,7 +11,7 @@ const SignForm = () => {
 
   // const { isLoggedIn } = useContext(AuthContext);
 
-  sessionStorage.setItem('email', email);
+  
   const navigate = useNavigate();
 
   const changeEmail = (e) => {

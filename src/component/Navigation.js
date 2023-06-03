@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -17,6 +17,7 @@ const Navigation = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const searchList = useContext(SearchListContext);
+  const { isLoggedIn, setIsLoggedIn, email, setEmail } = useContext(AuthContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -38,6 +39,18 @@ const Navigation = () => {
       console.log('error');
     }
   }
+  //새로고침 시 상태 변경 방지.
+  useEffect(() => {
+    // 컴포넌트 마운트 시 로그인 상태 확인
+    const loggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+    const storedEmail = sessionStorage.getItem('email');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
+
+
   // 조건부 렌더링 
   const isMoviesPage = window.location.pathname === '/movies';
 
@@ -80,6 +93,8 @@ const AuthButton = () => {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('email');
   };
 
   return (

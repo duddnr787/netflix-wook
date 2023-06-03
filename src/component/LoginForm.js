@@ -31,6 +31,7 @@ const LoginForm = () => {
         authContext.setIsLoggedIn(true);
         authContext.setEmail(email);
         sessionStorage.setItem("email", email);
+        sessionStorage.setItem('isLoggedIn', 'true');
         navigate('/');
       })
       .catch(response => {
