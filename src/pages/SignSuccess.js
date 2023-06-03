@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Container } from 'react-bootstrap';
 
 const SignSuccess = () => {
-  let email = localStorage.getItem('email');
+  let email = sessionStorage.getItem('email');
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import { Button, CardGroup, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  let email = localStorage.getItem('email');
+  let email = sessionStorage.getItem('email');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const handleSignup = (e) => {

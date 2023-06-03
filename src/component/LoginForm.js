@@ -18,6 +18,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const authContext = useContext(AuthContext);
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,9 +28,10 @@ const LoginForm = () => {
         password: password
       })
       .then(response => {
-        navigate('/');
         authContext.setIsLoggedIn(true);
         authContext.setEmail(email);
+        sessionStorage.setItem("email", email);
+        navigate('/');
       })
       .catch(response => {
         setIsDuplicate(true);

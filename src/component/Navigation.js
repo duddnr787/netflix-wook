@@ -8,13 +8,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { SearchListContext } from '../context/SearchListContext';
 import MovieSearchCard from './MovieSearchCard';
 
 const Navigation = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const [searchResults, setSearchResults] = useState([]);
+
+  const searchList = useContext(SearchListContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -25,10 +27,10 @@ const Navigation = () => {
           query: search
         }
       });
-      console.log(response.data.results);
       if (response.data.results.length !== 0) {
-        setSearchResults(response.data.results); //context로 바꿔야하나봐... 
+        searchList.setSearchResults(response.data.results);
         setSearch('');
+        navigate('/movies/search');
       } else {
         alert('검색 내용이 없습니다 ! ');
       }
