@@ -32,7 +32,7 @@ const Navigation = () => {
         searchList.setSearchResults(response.data.results);
         localStorage.setItem('searchList', JSON.stringify(response.data.results));
         setSearch('');
-        navigate('/movies/search');
+        navigate('/movies/search', { state: { search: search } });
       } else {
         if (localStorage.getItem('searchList') !== null) {
           localStorage.removeItem('searchList');

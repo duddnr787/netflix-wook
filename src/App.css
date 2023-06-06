@@ -78,6 +78,19 @@ h1 {
 	cursor: pointer;
 	transform: scale(1.1);
 }
+.search-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.search-info h2 {
+  font-size: 24px;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  padding: 10px 20px;
+}
 .noSearch {
 	width: 80%;
 	padding: 210px;

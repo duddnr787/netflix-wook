@@ -32,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node dist/main.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "copy-build": "cp -r build/. /Users/kimyoungwook/Desktop/nestjs.js/nest-board/public",
     "build-and-copy": "npm run build && npm run copy-build",
