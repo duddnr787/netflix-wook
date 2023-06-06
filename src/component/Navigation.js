@@ -53,7 +53,20 @@ const Navigation = () => {
       setEmail(storedEmail);
     }
   }, []);
-
+  const handleLogin = () => {
+    // 로그인 요청을 보내는 코드 작성
+    fetch('/login', {
+      method: 'POST',
+      // 필요한 요청 헤더, 바디 등 설정
+    })
+      .then(response => {
+        // 응답 처리
+        navigate('/movies/search');
+      })
+      .catch(error => {
+        // 에러 처리
+      });
+  };
 
   // 조건부 렌더링 
   const isMoviesPage = window.location.pathname === '/movies';
@@ -94,7 +107,7 @@ const Navigation = () => {
 }
 const AuthButton = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     setIsLoggedIn(false);
     sessionStorage.removeItem('isLoggedIn');
@@ -102,6 +115,9 @@ const AuthButton = () => {
     localStorage.removeItem('searchList');
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
   return (
     <React.Fragment>
       {isLoggedIn ? (
@@ -109,7 +125,7 @@ const AuthButton = () => {
           Logout
         </Button>
       ) : (
-        <Button href="/login" variant="outline-danger" style={{ marginLeft: "10px" }}>
+        <Button onClick={handleLogin} variant="outline-danger" style={{ marginLeft: "10px" }}>
           Login
         </Button>
       )}

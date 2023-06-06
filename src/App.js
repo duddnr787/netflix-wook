@@ -47,18 +47,18 @@ function App() {
   return (
     <AuthContext.Provider value={authContextValue}>
       <SearchListContext.Provider value={SearchListValue}>
-      <div className='App'>
-        <Navigation />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/movies' element={<Movies />} />
-          <Route path='/movies/search' element={<MovieSearchCard />} />
-          <Route path='/movie/:id' element={<MovieDetail />} />
-          {isLoggedIn ? <Route path='/login' element={<Home />} /> : <Route path='/login' element={<Login />} />}
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/signupSuccess' element={<SignSuccess />} />
-        </Routes>
-      </div>
+        <div className='App'>
+          <Navigation />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/movies' element={<Movies />} />
+            <Route path='/movies/search' element={<MovieSearchCard />} />
+            <Route path='/movie/:id' element={<MovieDetail />} />
+            <Route path='/login' element={isLoggedIn ? <Home /> : <Login />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/signupSuccess' element={<SignSuccess />} />
+          </Routes>
+        </div>
       </SearchListContext.Provider>
     </AuthContext.Provider>
   );
