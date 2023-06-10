@@ -8,7 +8,9 @@ import { useLocation } from 'react-router-dom';
 const MovieSearchCard = () => {
   const searchList = useContext(SearchListContext);
   const location = useLocation();
+
   const search = location.state?.search || '';
+
   useEffect(() => {
     const storedResults = localStorage.getItem('searchList');
     if (storedResults) {
@@ -29,7 +31,7 @@ const MovieSearchCard = () => {
           <Card.Text>검색된 영화가 없습니다 ㅠ..ㅠ</Card.Text>
         </Card>
       )}
-      <div style={{ display: 'flex', margin: '30px 30px', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+      <div style={{ display: 'flex', margin: '30px 30px', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
         {searchList.searchResults.length !== 0 ? (
           searchList.searchResults.map((item) => (
             <Card key={item.id} className='movieCard'>

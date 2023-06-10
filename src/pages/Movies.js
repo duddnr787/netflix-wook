@@ -6,6 +6,7 @@ import { movieAction } from '../redux/actions/movieAction';
 
 const Movies = () => {
   const dispatch = useDispatch()
+  //useSelector를 이용해서 state.moive를 가져온다.
   const { popularMovies, topRatedMovies, upcomingMovies, loading } = useSelector(state => state.movie)
 
   useEffect(() => {

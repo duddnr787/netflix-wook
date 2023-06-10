@@ -10,9 +10,10 @@ const responsive = {
     slidesToSlide: 1
   }
 };
+
 const MovieSlide = ({ movies }) => {
   return (
-    <div className="movieSlide">
+    <div className="movieSlide" >
       <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2500}  >
         {movies.results.map((item) =>
           <MovieCard item={item} />
