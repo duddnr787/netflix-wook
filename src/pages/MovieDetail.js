@@ -32,24 +32,20 @@ const MovieDetail = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} />
-            <Card.Body>
-              <Card.Title>{movie.title}</Card.Title>
-              <Card.Text>
-                {movie.overview}
-              </Card.Text>
-              <Card.Text>
-                평점: {movie.vote_average}
-              </Card.Text>
-              {/* 추가적인 영화 세부 정보를 표시할 수 있습니다. */}
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+    <Container style={{ marginTop: '3vh' }}>
+      <Card style={{ background: 'linear-gradient(135deg, #1e0439, #5d0404)', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+        <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} style={{ width: '300px', height: '450px' }} />
+        <Card.Body style={{ color: '#fff' }}>
+          <Card.Title style={{fontSize:'5em'}}>{movie.title}</Card.Title>
+          <Card.Text>
+            {movie.overview}
+          </Card.Text>
+          <Card.Text>
+            평점: {movie.vote_average}
+          </Card.Text>
+          {/* 추가적인 영화 세부 정보를 표시할 수 있습니다. */}
+        </Card.Body>
+      </Card>
     </Container>
   );
 };
