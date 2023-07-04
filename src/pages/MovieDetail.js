@@ -7,7 +7,7 @@ import { ClipLoader } from 'react-spinners';
 const MovieDetail = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [movie, setMovie] = useState([]);
-  const { loading } = useSelector(state => state.movie);
+  const { loading } = useSelector(state => state.MovieStore);
   const { id } = useParams();
 
   useEffect(() => {

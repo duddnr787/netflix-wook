@@ -9,10 +9,12 @@ import Navigation from './component/Navigation';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import SignSuccess from './pages/SignSuccess';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AuthContext } from './context/AuthContext';
 import { SearchListContext } from './context/SearchListContext';
 import MovieSearchCard from './component/MovieSearchCard';
+import { movieAction } from './redux/actions/movieAction';
+import { useDispatch } from 'react-redux';
 //1. 3개 페이지 필요 홈페이지 , movie 페이지 , movieDetail페이지 
 
 //2. 홈페이지 : 배너를 볼 수 있다.
@@ -30,7 +32,7 @@ import MovieSearchCard from './component/MovieSearchCard';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
-
+  const dispatch = useDispatch();
   const [searchResults, setSearchResults] = useState([]);
   // 로그인 정보를 제공할 컨텍스트 값 설정
   const authContextValue = {
@@ -44,6 +46,11 @@ function App() {
     searchResults,
     setSearchResults
   };
+  
+  useEffect(() => {
+    dispatch(movieAction.getMovies());
+  }, []);
+
   return (
     <AuthContext.Provider value={authContextValue}>
       <SearchListContext.Provider value={SearchListValue}>

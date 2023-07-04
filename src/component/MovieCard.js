@@ -3,7 +3,7 @@ import { Badge, NavItem } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 const MovieCard = ({item}) => {
-  const {genreList} = useSelector(state=>state.movie);
+  const {genreList} = useSelector(state=>state.MovieStore);
   return (
     <div className="movie-card"
     style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w710_and_h400_multi_faces${item.poster_path}`+")"}} >

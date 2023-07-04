@@ -1,10 +1,14 @@
+import { useDispatch } from 'react-redux';
 import api from '../api'
+import { movieReq, reqfailed, updateMovieStore } from '../reducers/MovieStore';
+
 
 const API_KEY = process.env.REACT_APP_API_KEY
+
 function getMovies() {
   return async (dispatch) => {
     try {
-      dispatch({ type: "GET_MOVIES_REQUEST" })
+      dispatch(movieReq(false));
       const popularMovieApi = api.get(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API_KEY}`);
 
       const topRatedApi = api.get(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${API_KEY}`);
@@ -15,21 +19,17 @@ function getMovies() {
 
 
       let [popularMovies, topRatedMovies, upcomingMovies, genreList] = await Promise.all([popularMovieApi, topRatedApi, upcomingApi, genreApi]) //동시에 API 호출을 시키고 기다리라. //배열로 받음.
-      dispatch({
-        type: "GET_MOVIES_SUCCESS",
-        payload: {
-          popularMovies: popularMovies.data,
-          topRatedMovies: topRatedMovies.data,
-          upcomingMovies: upcomingMovies.data,
-          genreList: genreList.data.genres
-        }
-      });
+      dispatch(updateMovieStore({
+        popularMovies: popularMovies.data,
+        topRatedMovies: topRatedMovies.data,
+        upcomingMovies: upcomingMovies.data,
+        genreList: genreList.data.genres
+      }))
     } catch (error) {
-      dispatch({ type: "GET_MOVIES_FAILED" })
+      dispatch(reqfailed(true))
     }
   }
 };
-//미들웨어는 함수가 함수를 리턴 
 
 export const movieAction = {
   getMovies
